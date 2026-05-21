@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
 import Gallery from '@/components/sections/Gallery'
 import Services from '@/components/sections/Services'
@@ -7,6 +8,15 @@ import ContactForm from '@/components/forms/ContactForm'
 import NewsletterForm from '@/components/forms/NewsletterForm'
 import LocationMap from '@/components/sections/LocationMap'
 import SectionAnimator from '@/components/ui/SectionAnimator'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  return {
+    alternates: {
+      canonical: `https://www.atlasgloss.com/${locale}`,
+    },
+  }
+}
 
 export default function HomePage() {
   return (

@@ -10,7 +10,10 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const title = locale === 'es' ? 'Términos y Condiciones | Atlas Gloss' : 'Terms & Conditions | Atlas Gloss'
-  return { title }
+  return {
+    title,
+    alternates: { canonical: `https://www.atlasgloss.com/${locale}/terms` },
+  }
 }
 
 const en = {

@@ -11,7 +11,10 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const title = locale === 'es' ? 'Política de Cookies | Atlas Gloss' : 'Cookie Policy | Atlas Gloss'
-  return { title }
+  return {
+    title,
+    alternates: { canonical: `https://www.atlasgloss.com/${locale}/cookies` },
+  }
 }
 
 const en = {

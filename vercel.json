@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "atlasgloss.com" }],
+      "destination": "https://www.atlasgloss.com/$1",
+      "permanent": true
+    }
+  ]
+}

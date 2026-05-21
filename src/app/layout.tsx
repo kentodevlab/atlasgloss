@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Atlas Gloss — Premium Hand Car Wash',
     description: 'Your car deserves a mirror finish. Hand-washed with precision care in Houston, TX.',
-    url: 'https://atlasgloss.com',
+    url: 'https://www.atlasgloss.com',
     siteName: 'Atlas Gloss',
     locale: 'en_US',
     type: 'website',
@@ -47,11 +47,14 @@ export const metadata: Metadata = {
     description: 'Your car deserves a mirror finish. Hand-washed in Houston, TX.',
     images: ['/og-image.png'],
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://atlasgloss.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.atlasgloss.com'),
   robots: { index: true, follow: true },
   alternates: {
-    canonical: 'https://atlasgloss.com',
-    languages: { en: 'https://atlasgloss.com/en', es: 'https://atlasgloss.com/es' },
+    languages: {
+      en: 'https://www.atlasgloss.com/en',
+      es: 'https://www.atlasgloss.com/es',
+      'x-default': 'https://www.atlasgloss.com/en',
+    },
   },
 }
 
@@ -70,14 +73,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               '@type': ['Organization', 'LocalBusiness'],
               name: 'Atlas Gloss',
               description: 'Premium hand car wash in Houston, TX',
-              url: 'https://atlasgloss.com',
-              telephone: '[REPLACE: (713) 000-0000]',
+              url: 'https://www.atlasgloss.com',
+              telephone: '(346) 978-7617',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: '[REPLACE: full address]',
-                addressLocality: 'Houston',
+                streetAddress: '23050 Morton Ranch Rd Apt 2321',
+                addressLocality: 'Katy',
                 addressRegion: 'TX',
-                postalCode: '[REPLACE: ZIP]',
+                postalCode: '77449',
                 addressCountry: 'US',
               },
               openingHoursSpecification: [
@@ -85,7 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '08:00', closes: '17:00' },
               ],
               priceRange: '$29-$99',
-              image: 'https://atlasgloss.com/og-image.png',
+              image: 'https://www.atlasgloss.com/og-image.png',
             }),
           }}
         />
