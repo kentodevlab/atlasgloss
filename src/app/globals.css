@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0F2547;
+  --color-blue-bright: #2A78F0;
+  --color-blue-deep: #143E8C;
+  --color-houston: #F26B1F;
+  --color-houston-soft: #FCEADD;
+  --color-page: #F6F8FA;
+  --color-surface: #FFFFFF;
+  --color-fg: #0A1426;
+  --color-muted: #6B7480;
+
+  --font-display: var(--font-saira), 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: var(--font-manrope), 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    background: var(--color-page);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .container-ag {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+
+  .ag-bg-image {
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(30,91,198,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 40%, rgba(42,120,240,0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #0A1426 0%, #0F2547 40%, #143E8C 100%);
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(0.8); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+  }
+}
