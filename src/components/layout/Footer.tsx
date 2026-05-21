@@ -46,10 +46,10 @@ export default function Footer() {
               {t(dictionary.footer.sunday, locale)}
             </span>
             <span className="font-[family-name:var(--font-mono)]">
-              Houston, TX · [REPLACE: full address]
+              Houston, TX · Address: 23050 Morton Ranch Rd Apt 2321
             </span>
             <span className="font-[family-name:var(--font-mono)]">
-              [REPLACE: (713) 000-0000]
+              Phone: (346) 978-7617
             </span>
           </div>
         </div>
