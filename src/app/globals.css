@@ -19,7 +19,7 @@
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-.dark {
+html.dark {
   --color-page: #0A1426;
   --color-surface: #1A2332;
   --color-fg: #F0F4F8;
