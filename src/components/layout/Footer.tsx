@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocale } from 'next-intl'
+import { Link } from '@/navigation'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
 
@@ -62,6 +63,12 @@ export default function Footer() {
           <span className="font-[family-name:var(--font-mono)] text-[11px]">
             Developed with ❤️ by <a href="https://kentodevlab.com" target="_blank" rel="noopener noreferrer" className="text-blue-bright hover:underline font-bold">KentoDevLab</a>
           </span>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-[11px] text-muted">
+          <Link href="/privacy" className="hover:text-blue-bright transition-colors">{locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}</Link>
+          <Link href="/cookies" className="hover:text-blue-bright transition-colors">{locale === 'es' ? 'Política de Cookies' : 'Cookie Policy'}</Link>
+          <Link href="/terms" className="hover:text-blue-bright transition-colors">{locale === 'es' ? 'Términos y Condiciones' : 'Terms &amp; Conditions'}</Link>
         </div>
       </div>
     </footer>

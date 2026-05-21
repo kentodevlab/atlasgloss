@@ -8,6 +8,7 @@ import LanguageToggle from '@/components/layout/LanguageToggle'
 import ThemeProvider from '@/components/layout/ThemeProvider'
 import AccessibilityProvider from '@/components/layout/AccessibilityProvider'
 import AccessibilityPanel from '@/components/layout/AccessibilityPanel'
+import CookieBanner from '@/components/layout/CookieBanner'
 import SkipLink from '@/components/ui/SkipLink'
 
 interface LocaleLayoutProps {
@@ -32,6 +33,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Footer />
           <LanguageToggle />
           <AccessibilityPanel />
+          <CookieBanner />
         </AccessibilityProvider>
       </ThemeProvider>
     </NextIntlClientProvider>
