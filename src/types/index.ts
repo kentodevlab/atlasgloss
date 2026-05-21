@@ -1,24 +1,19 @@
-export interface Bilingual {
-  en: string
-  es: string
-}
-
 export interface ServicePackage {
   id: string
-  nameKey: string | Bilingual
-  descriptionKey: string | Bilingual
+  nameKey: string
+  descriptionKey: string
   price: number
   duration: number
-  features: (string | Bilingual)[]
+  features: string[]
   featured?: boolean
 }
 
 export interface Testimonial {
   id: string
   name: string
-  location: string | Bilingual
+  location: string
   stars: number
-  quoteKey: string | Bilingual
+  quoteKey: string
 }
 
 export interface GalleryImage {
