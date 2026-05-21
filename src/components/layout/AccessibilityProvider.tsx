@@ -10,10 +10,10 @@ type LetterSpacing = 'normal' | 'wide'
 
 interface A11ySettings {
   fontSize: FontSize
-  contrast: Contrast
-  motion: Motion
-  fontStyle: FontStyle
-  letterSpacing: LetterSpacing
+  contrast: Contrast | 'on'
+  motion: Motion | 'on'
+  fontStyle: FontStyle | 'on'
+  letterSpacing: LetterSpacing | 'on'
 }
 
 interface A11yContextValue {
@@ -39,6 +39,18 @@ const A11yContext = createContext<A11yContextValue>({
 export const useA11y = () => useContext(A11yContext)
 
 const STORAGE_KEY = 'a11y-settings'
+const STYLE_ID = 'a11y-motion-style'
+
+function map(key: string, val: string): string {
+  if (val !== 'on') return val
+  switch (key) {
+    case 'contrast': return 'high'
+    case 'motion': return 'reduced'
+    case 'fontStyle': return 'accessible'
+    case 'letterSpacing': return 'wide'
+    default: return val
+  }
+}
 
 function apply(settings: A11ySettings) {
   const root = document.documentElement
@@ -52,7 +64,8 @@ function apply(settings: A11ySettings) {
     s.removeProperty('font-size')
   }
 
-  if (settings.contrast === 'high') {
+  const contrast = map('contrast', settings.contrast as string)
+  if (contrast === 'high') {
     const isDark = root.classList.contains('dark')
     s.setProperty('--color-page', isDark ? '#000000' : '#FFFFFF')
     s.setProperty('--color-surface', isDark ? '#000000' : '#FFFFFF')
@@ -63,25 +76,26 @@ function apply(settings: A11ySettings) {
     s.setProperty('--color-blue-deep', isDark ? '#3399FF' : '#002288')
     s.setProperty('--color-houston', isDark ? '#FF8833' : '#CC5500')
   } else {
-    s.removeProperty('--color-page')
-    s.removeProperty('--color-surface')
-    s.removeProperty('--color-fg')
-    s.removeProperty('--color-muted')
-    s.removeProperty('--color-border')
-    s.removeProperty('--color-blue-bright')
-    s.removeProperty('--color-blue-deep')
-    s.removeProperty('--color-houston')
+    ;['--color-page', '--color-surface', '--color-fg', '--color-muted',
+      '--color-border', '--color-blue-bright', '--color-blue-deep', '--color-houston'
+    ].forEach((p) => s.removeProperty(p))
   }
 
-  if (settings.motion === 'reduced') {
-    s.setProperty('animation-duration', '0.01ms !important')
-    s.setProperty('transition-duration', '0.01ms !important')
-  } else {
-    s.removeProperty('animation-duration')
-    s.removeProperty('transition-duration')
+  const motion = map('motion', settings.motion as string)
+  let styleEl = document.getElementById(STYLE_ID) as HTMLStyleElement | null
+  if (motion === 'reduced') {
+    if (!styleEl) {
+      styleEl = document.createElement('style')
+      styleEl.id = STYLE_ID
+      document.head.appendChild(styleEl)
+    }
+    styleEl.textContent = '*, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }'
+  } else if (styleEl) {
+    styleEl.remove()
   }
 
-  if (settings.fontStyle === 'accessible') {
+  const fontStyle = map('fontStyle', settings.fontStyle as string)
+  if (fontStyle === 'accessible') {
     s.setProperty('--font-body', "'Tahoma', sans-serif")
     s.setProperty('--font-display', "'Tahoma', sans-serif")
     s.setProperty('--font-mono', "'Courier New', monospace")
@@ -91,7 +105,8 @@ function apply(settings: A11ySettings) {
     s.removeProperty('--font-mono')
   }
 
-  if (settings.letterSpacing === 'wide') {
+  const letterSpacing = map('letterSpacing', settings.letterSpacing as string)
+  if (letterSpacing === 'wide') {
     s.setProperty('letter-spacing', '0.12em')
     s.setProperty('word-spacing', '0.16em')
   } else {
