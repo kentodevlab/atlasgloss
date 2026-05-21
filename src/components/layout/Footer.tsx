@@ -38,7 +38,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col gap-2 text-right text-[13px]">
+          <div className="flex flex-col gap-2 text-left md:text-right text-[13px]">
             <span className="font-[family-name:var(--font-mono)]">
               {t(dictionary.footer.weekday, locale)}
             </span>

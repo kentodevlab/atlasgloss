@@ -10,7 +10,7 @@ import SectionAnimator from '@/components/ui/SectionAnimator'
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="scroll-smooth">
+    <main id="main-content" className="scroll-smooth overflow-x-hidden">
       <Hero />
       <SectionAnimator as="div"><Services /></SectionAnimator>
       <SectionAnimator as="div" delay={100}><Gallery /></SectionAnimator>

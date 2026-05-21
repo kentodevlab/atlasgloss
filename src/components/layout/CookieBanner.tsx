@@ -69,16 +69,16 @@ export default function CookieBanner() {
             </Link>
           </p>
         </div>
-        <div className="flex gap-3 shrink-0">
+        <div className="flex flex-col-reverse sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={handleReject}
-            className="px-5 py-2 rounded-[10px] text-sm font-medium text-fg border border-border hover:bg-page dark:hover:bg-[#0A1426] transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-[10px] text-sm font-medium text-fg border border-border hover:bg-page dark:hover:bg-[#0A1426] transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright"
           >
             {t.reject}
           </button>
           <button
             onClick={handleAccept}
-            className="px-5 py-2 rounded-[10px] text-sm font-semibold text-white bg-blue-bright border border-blue-bright hover:bg-blue-deep transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-[10px] text-sm font-semibold text-white bg-blue-bright border border-blue-bright hover:bg-blue-deep transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright"
           >
             {t.accept}
           </button>

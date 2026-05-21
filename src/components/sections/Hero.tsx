@@ -40,16 +40,16 @@ export default function Hero() {
           {locale === 'es' ? 'Desde $29 · Lavado a mano · Houston, TX' : 'From $29 · Hand wash · Houston, TX'}
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 w-full">
           <Link
             href="/#booking"
-            className="inline-flex items-center gap-2 px-9 py-4 rounded-[16px] bg-houston text-white text-[17px] font-semibold border border-houston no-underline hover:bg-[#D45A15] hover:shadow-[0_8px_28px_rgba(242,107,31,0.35)] transition-all duration-150"
+            className="inline-flex items-center justify-center gap-2 px-9 py-4 rounded-[16px] bg-houston text-white text-[17px] font-semibold border border-houston no-underline hover:bg-[#D45A15] hover:shadow-[0_8px_28px_rgba(242,107,31,0.35)] transition-all duration-150 sm:w-auto w-full"
           >
             {t(dictionary.hero.ctaPrimary, locale)}
           </Link>
           <Link
             href="/#services"
-            className="inline-flex items-center gap-2 px-9 py-4 rounded-[16px] bg-transparent text-white text-[17px] font-semibold border border-[rgba(255,255,255,0.35)] no-underline hover:border-white hover:bg-[rgba(255,255,255,0.08)] transition-all duration-150"
+            className="inline-flex items-center justify-center gap-2 px-9 py-4 rounded-[16px] bg-transparent text-white text-[17px] font-semibold border border-[rgba(255,255,255,0.35)] no-underline hover:border-white hover:bg-[rgba(255,255,255,0.08)] transition-all duration-150 sm:w-auto w-full"
           >
             {t(dictionary.hero.ctaSecondary, locale)}
           </Link>

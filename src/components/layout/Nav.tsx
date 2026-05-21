@@ -56,7 +56,7 @@ export default function Nav() {
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-controls="mobile-menu"
             aria-expanded={open}
-            className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
+            className="md:hidden flex flex-col items-center justify-center gap-1.5 min-w-[44px] min-h-[44px] bg-transparent border-none cursor-pointer focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
           >
             <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'rotate-45 translate-y-[5px]' : ''}`} />
             <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
@@ -67,7 +67,7 @@ export default function Nav() {
 
       {open && (
         <div id="mobile-menu" className="md:hidden bg-page/98 dark:bg-navy/98 border-t border-black/8 dark:border-white/8">
-          <nav className="container-ag flex flex-col py-4 gap-3" aria-label="Mobile">
+          <nav className="container-ag flex flex-col py-4 gap-1.5" aria-label="Mobile">
             {navLinks.map((key) => {
               const href = key === 'bookNow' ? '/#booking' : `/#${key === 'reviews' ? 'testimonials' : key}`
               return (
@@ -75,7 +75,7 @@ export default function Nav() {
                   key={key}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors py-2 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
+                  className="text-[17px] font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors py-3 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
                 >
                   {t(dictionary.nav[key], locale)}
                 </Link>

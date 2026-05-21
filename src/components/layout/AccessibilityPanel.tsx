@@ -70,7 +70,7 @@ export default function AccessibilityPanel() {
                   <button
                     key={opt.value}
                     onClick={() => update({ fontSize: opt.value })}
-                    className={`flex-1 px-2 py-1.5 rounded-md text-[11px] font-medium transition-colors ${
+                    className={`flex-1 min-h-[44px] px-2 py-1.5 rounded-md text-[11px] font-medium transition-colors ${
                       settings.fontSize === opt.value
                         ? 'bg-blue-bright text-white'
                         : 'bg-page dark:bg-[#0A1426] text-fg'

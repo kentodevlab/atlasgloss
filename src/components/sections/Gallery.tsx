@@ -103,7 +103,7 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
     <button
       onClick={onClick}
       aria-label={isFlipped ? `Close story for ${img.label}` : `View story for ${img.label}`}
-      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 scale-150 overflow-visible' : 'z-0 overflow-hidden'}`}
+      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 scale-[1.08] md:scale-150 overflow-visible' : 'z-0 overflow-hidden'}`}
     >
       <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
         <div className="absolute inset-0 [backface-visibility:hidden] overflow-hidden rounded-[16px]">
