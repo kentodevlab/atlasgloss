@@ -36,7 +36,7 @@ export default function AccessibilityPanel() {
         onClick={() => setOpen(!open)}
         aria-label="Accessibility settings"
         aria-expanded={open}
-        className="fixed bottom-5 left-5 z-50 w-10 h-10 rounded-full bg-navy dark:bg-surface text-white dark:text-navy grid place-items-center shadow-lg hover:scale-110 transition-transform border-2 border-white/20"
+        className="fixed bottom-5 left-5 z-50 w-11 h-11 rounded-full bg-navy dark:bg-surface text-white dark:text-navy grid place-items-center shadow-lg hover:scale-110 transition-transform border-2 border-white/20"
       >
         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="10" />
@@ -47,7 +47,7 @@ export default function AccessibilityPanel() {
 
       {open && (
         <div
-          className="fixed bottom-20 left-5 z-50 w-[240px] bg-surface dark:bg-navy border border-border rounded-[16px] p-4 shadow-xl"
+          className="fixed bottom-20 left-5 z-50 w-[280px] bg-surface dark:bg-navy border border-border rounded-[16px] p-5 shadow-xl"
           role="dialog"
           aria-label="Accessibility settings"
         >
@@ -86,10 +86,10 @@ export default function AccessibilityPanel() {
               const isOn = settings[t.key] !== 'normal'
               return (
                 <div key={t.key} className="flex items-center justify-between">
-                  <span className="text-[12px] text-fg">{t.label}</span>
+                  <span className="text-[13px] text-fg">{t.label}</span>
                   <button
                     onClick={() => update({ [t.key]: isOn ? 'normal' : 'on' } as any)}
-                    className={`w-9 h-5 rounded-full transition-colors relative ${
+                    className={`w-11 h-6 rounded-full transition-colors relative shrink-0 ${
                       isOn ? 'bg-blue-bright' : 'bg-border'
                     }`}
                     role="switch"
@@ -97,8 +97,8 @@ export default function AccessibilityPanel() {
                     aria-label={t.label}
                   >
                     <span
-                      className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform ${
-                        isOn ? 'translate-x-[18px]' : 'translate-x-0.5'
+                      className={`absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform shadow-sm ${
+                        isOn ? 'translate-x-[22px]' : 'translate-x-0.5'
                       }`}
                     />
                   </button>

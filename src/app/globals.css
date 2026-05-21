@@ -58,45 +58,4 @@ html.dark {
     50% { transform: scale(1.2); opacity: 0.6; }
   }
 
-  .a11y-font-lg { font-size: 1.125rem; }
-  .a11y-font-xl { font-size: 1.25rem; }
-
-  html.a11y-high-contrast {
-    --color-page: #FFFFFF;
-    --color-surface: #FFFFFF;
-    --color-fg: #000000;
-    --color-muted: #1A1A1A;
-    --color-border: #000000;
-    --color-blue-bright: #0044CC;
-    --color-blue-deep: #002288;
-    --color-houston: #CC5500;
-  }
-  html.dark.a11y-high-contrast {
-    --color-page: #000000;
-    --color-surface: #000000;
-    --color-fg: #FFFFFF;
-    --color-muted: #E0E0E0;
-    --color-border: #FFFFFF;
-    --color-blue-bright: #66B3FF;
-    --color-blue-deep: #3399FF;
-    --color-houston: #FF8833;
-  }
-
-  html.a11y-reduced-motion *,
-  html.a11y-reduced-motion *::before,
-  html.a11y-reduced-motion *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html.a11y-font-accessible {
-    --font-body: 'OpenDyslexic', 'Tahoma', sans-serif;
-    --font-display: 'OpenDyslexic', 'Tahoma', sans-serif;
-    --font-mono: 'Courier New', monospace;
-  }
-
-  html.a11y-letter-spacing {
-    letter-spacing: 0.12em;
-    word-spacing: 0.16em;
-  }
 }

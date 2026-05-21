@@ -40,6 +40,66 @@ export const useA11y = () => useContext(A11yContext)
 
 const STORAGE_KEY = 'a11y-settings'
 
+function apply(settings: A11ySettings) {
+  const root = document.documentElement
+  const s = root.style
+
+  if (settings.fontSize === 'large') {
+    s.setProperty('font-size', '112.5%')
+  } else if (settings.fontSize === 'xlarge') {
+    s.setProperty('font-size', '125%')
+  } else {
+    s.removeProperty('font-size')
+  }
+
+  if (settings.contrast === 'high') {
+    const isDark = root.classList.contains('dark')
+    s.setProperty('--color-page', isDark ? '#000000' : '#FFFFFF')
+    s.setProperty('--color-surface', isDark ? '#000000' : '#FFFFFF')
+    s.setProperty('--color-fg', isDark ? '#FFFFFF' : '#000000')
+    s.setProperty('--color-muted', isDark ? '#E0E0E0' : '#1A1A1A')
+    s.setProperty('--color-border', isDark ? '#FFFFFF' : '#000000')
+    s.setProperty('--color-blue-bright', isDark ? '#66B3FF' : '#0044CC')
+    s.setProperty('--color-blue-deep', isDark ? '#3399FF' : '#002288')
+    s.setProperty('--color-houston', isDark ? '#FF8833' : '#CC5500')
+  } else {
+    s.removeProperty('--color-page')
+    s.removeProperty('--color-surface')
+    s.removeProperty('--color-fg')
+    s.removeProperty('--color-muted')
+    s.removeProperty('--color-border')
+    s.removeProperty('--color-blue-bright')
+    s.removeProperty('--color-blue-deep')
+    s.removeProperty('--color-houston')
+  }
+
+  if (settings.motion === 'reduced') {
+    s.setProperty('animation-duration', '0.01ms !important')
+    s.setProperty('transition-duration', '0.01ms !important')
+  } else {
+    s.removeProperty('animation-duration')
+    s.removeProperty('transition-duration')
+  }
+
+  if (settings.fontStyle === 'accessible') {
+    s.setProperty('--font-body', "'Tahoma', sans-serif")
+    s.setProperty('--font-display', "'Tahoma', sans-serif")
+    s.setProperty('--font-mono', "'Courier New', monospace")
+  } else {
+    s.removeProperty('--font-body')
+    s.removeProperty('--font-display')
+    s.removeProperty('--font-mono')
+  }
+
+  if (settings.letterSpacing === 'wide') {
+    s.setProperty('letter-spacing', '0.12em')
+    s.setProperty('word-spacing', '0.16em')
+  } else {
+    s.removeProperty('letter-spacing')
+    s.removeProperty('word-spacing')
+  }
+}
+
 export default function AccessibilityProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<A11ySettings>(defaults)
   const [mounted, setMounted] = useState(false)
@@ -57,15 +117,7 @@ export default function AccessibilityProvider({ children }: { children: ReactNod
 
   useEffect(() => {
     if (!mounted) return
-    const root = document.documentElement
-
-    root.classList.toggle('a11y-font-lg', settings.fontSize === 'large')
-    root.classList.toggle('a11y-font-xl', settings.fontSize === 'xlarge')
-    root.classList.toggle('a11y-high-contrast', settings.contrast === 'high')
-    root.classList.toggle('a11y-reduced-motion', settings.motion === 'reduced')
-    root.classList.toggle('a11y-font-accessible', settings.fontStyle === 'accessible')
-    root.classList.toggle('a11y-letter-spacing', settings.letterSpacing === 'wide')
-
+    apply(settings)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(settings))
   }, [settings, mounted])
 
