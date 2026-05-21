@@ -17,7 +17,7 @@ export default function LanguageToggle() {
   }
 
   return (
-    <div className="flex gap-1 bg-surface border border-border rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]">
+    <div className="fixed bottom-5 right-5 z-50 flex gap-1 bg-surface border border-border rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]">
       <button
         onClick={() => switchLang('en')}
         disabled={isPending}

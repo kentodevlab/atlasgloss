@@ -5,6 +5,7 @@ import { useLocale } from 'next-intl'
 import { Link } from '@/navigation'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
+import ThemeToggle from './ThemeToggle'
 
 const navLinks = ['services', 'gallery', 'reviews', 'bookNow'] as const
 
@@ -30,7 +31,9 @@ export default function Nav() {
           })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+
           <Link
             href="/#booking"
             className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-[10px] bg-blue-bright text-white text-sm font-semibold border border-blue-bright no-underline hover:bg-blue-deep transition-colors"

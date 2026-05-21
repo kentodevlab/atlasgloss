@@ -5,7 +5,6 @@ import { locales } from '@/i18n/request'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import LanguageToggle from '@/components/layout/LanguageToggle'
-import ThemeToggle from '@/components/layout/ThemeToggle'
 import ThemeProvider from '@/components/layout/ThemeProvider'
 import SkipLink from '@/components/ui/SkipLink'
 
@@ -28,10 +27,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <Nav />
         {children}
         <Footer />
-        <div className="fixed bottom-5 right-5 z-50 flex gap-2">
-          <ThemeToggle />
-          <LanguageToggle />
-        </div>
+        <LanguageToggle />
       </ThemeProvider>
     </NextIntlClientProvider>
   )
