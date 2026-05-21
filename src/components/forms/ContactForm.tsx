@@ -1,14 +1,18 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { useLocale } from 'next-intl'
 import { t } from '@/lib/dictionary'
 import { submitContact } from '@/lib/actions'
 import dictionary from '@/lib/dictionary'
 import type { FormState } from '@/types'
+import Turnstile from '@/components/ui/Turnstile'
+
+const TURNSTILE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
 
 export default function ContactForm() {
   const locale = useLocale() as 'en' | 'es'
+  const [turnstileToken, setTurnstileToken] = useState('')
   const [state, formAction, pending] = useActionState<FormState, FormData>(submitContact, { success: false, message: '' })
 
   if (state.success) {
@@ -84,9 +88,16 @@ export default function ContactForm() {
         <p className="text-red-500 text-xs">{state.message}</p>
       )}
 
+      {TURNSTILE_KEY && (
+        <input type="hidden" name="cf-turnstile-response" value={turnstileToken} />
+      )}
+      {TURNSTILE_KEY && (
+        <Turnstile siteKey={TURNSTILE_KEY} onVerify={setTurnstileToken} />
+      )}
+
       <button
         type="submit"
-        disabled={pending}
+        disabled={pending || (!!TURNSTILE_KEY && !turnstileToken)}
         className="w-full px-6 py-3 rounded-[10px] bg-blue-bright text-white text-[15px] font-semibold border border-blue-bright hover:bg-blue-deep transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {pending && (

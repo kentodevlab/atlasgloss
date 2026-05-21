@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
+import Stats from '@/components/sections/Stats'
 import Gallery from '@/components/sections/Gallery'
 import Services from '@/components/sections/Services'
 import Testimonials from '@/components/sections/Testimonials'
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <main id="main-content" className="scroll-smooth">
       <Hero />
+      <Stats />
       <SectionAnimator as="div"><Services /></SectionAnimator>
       <SectionAnimator as="div" delay={100}><Gallery /></SectionAnimator>
       <SectionAnimator as="div" delay={100}><Testimonials /></SectionAnimator>

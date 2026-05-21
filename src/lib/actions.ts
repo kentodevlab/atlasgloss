@@ -5,6 +5,22 @@ import type { FormState } from '@/types'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY
+  if (!secret) return true
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${encodeURIComponent(secret)}&response=${encodeURIComponent(token)}`,
+    })
+    const data = await res.json()
+    return data.success === true
+  } catch {
+    return false
+  }
+}
+
 export async function submitContact(prev: FormState, formData: FormData): Promise<FormState> {
   const name = formData.get('name') as string
   const email = formData.get('email') as string
@@ -19,6 +35,11 @@ export async function submitContact(prev: FormState, formData: FormData): Promis
 
   if (Object.keys(errors).length > 0) {
     return { success: false, message: 'Please fix the errors below.', errors }
+  }
+
+  const turnstileToken = (formData.get('cf-turnstile-response') as string) || ''
+  if (process.env.TURNSTILE_SECRET_KEY && !(await verifyTurnstile(turnstileToken))) {
+    return { success: false, message: 'Security verification failed. Please try again.' }
   }
 
   if (!resend) {
@@ -43,6 +64,11 @@ export async function subscribeNewsletter(prev: FormState, formData: FormData): 
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { success: false, message: 'Valid email is required.' }
+  }
+
+  const turnstileToken = (formData.get('cf-turnstile-response') as string) || ''
+  if (process.env.TURNSTILE_SECRET_KEY && !(await verifyTurnstile(turnstileToken))) {
+    return { success: false, message: 'Security verification failed. Please try again.' }
   }
 
   if (!resend) {

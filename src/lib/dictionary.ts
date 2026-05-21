@@ -20,6 +20,12 @@ const dictionary = {
     title: { en: 'See the difference a hand wash makes', es: 'Mira la diferencia de un lavado a mano' },
     lead: { en: 'Real results from real clients across Houston. Every photo taken after an Atlas Gloss detail.', es: 'Resultados reales de clientes en Houston. Cada foto tomada después de un detalle Atlas Gloss.' },
   },
+  stats: {
+    coated: { en: 'Vehicles Protected with Ceramic Coating', es: 'Vehículos Protegidos con Recubrimiento Cerámico' },
+    quality: { en: 'Ceramic-Grade Hand Wash Quality', es: 'Calidad de Lavado a Mano con Cerámica' },
+    rating: { en: 'Average Customer Rating', es: 'Calificación Promedio de Clientes' },
+    years: { en: 'Years Serving Houston, TX', es: 'Años Sirviendo a Houston, TX' },
+  },
   services: {
     eyebrow: { en: 'WASH PACKAGES', es: 'PAQUETES DE LAVADO' },
     title: { en: 'Choose your level of clean', es: 'Elige tu nivel de limpieza' },

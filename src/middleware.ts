@@ -7,5 +7,5 @@ export default createMiddleware({
 })
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|_static|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|_vercel|_static|opengraph-image|.*\\..*).*)'],
 }

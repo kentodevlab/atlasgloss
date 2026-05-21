@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import { useLocale } from 'next-intl'
 import { Link } from '@/navigation'
 
+declare global {
+  interface Window {
+    gtag: (...args: unknown[]) => void
+  }
+}
+
 type Consent = 'accepted' | 'rejected' | null
 
 const content: Record<string, { title: string; message: string; accept: string; reject: string; details: string }> = {
@@ -41,6 +47,12 @@ export default function CookieBanner() {
   function handleAccept() {
     localStorage.setItem('cookie-consent', 'accepted')
     setConsent('accepted')
+    window.gtag?.('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    })
   }
 
   function handleReject() {

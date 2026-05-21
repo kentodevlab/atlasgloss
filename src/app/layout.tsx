@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { type ReactNode } from 'react'
 import { Saira_Condensed, Manrope, JetBrains_Mono } from 'next/font/google'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import './globals.css'
 
 const saira = Saira_Condensed({
@@ -39,15 +40,16 @@ export const metadata: Metadata = {
     siteName: 'Atlas Gloss',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Atlas Gloss — Premium Hand Car Wash',
     description: 'Your car deserves a mirror finish. Hand-washed in Houston, TX.',
-    images: ['/og-image.png'],
+    images: ['https://www.atlasgloss.com/opengraph-image'],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://www.atlasgloss.com'),
+   verification: { google: '5Mv3Y6sqSiVLkSYnucPDY2iq5yYwYhxhz5nc6EFmv-w' },
+  other: { 'msvalidate.01': '06960FFF9BAA139E1942BDF0A32D1236' },
   robots: { index: true, follow: true },
   alternates: {
     languages: {
@@ -64,6 +66,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{
           __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()`
+        }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});`
         }} />
         <script
           type="application/ld+json"
@@ -88,13 +93,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '08:00', closes: '17:00' },
               ],
               priceRange: '$29-$99',
-              image: 'https://www.atlasgloss.com/og-image.png',
+              image: 'https://www.atlasgloss.com/opengraph-image',
             }),
           }}
         />
       </head>
       <body className="font-body antialiased">
         {children}
+        {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   )

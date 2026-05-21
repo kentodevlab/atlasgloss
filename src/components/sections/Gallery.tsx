@@ -131,6 +131,8 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
             fill
             className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
           <div className="absolute bottom-3 left-3 right-3 bg-[rgba(10,20,38,0.75)] backdrop-blur-sm text-white px-2.5 py-1.5 rounded-md text-[11px] text-center font-medium">
             {img.label}
