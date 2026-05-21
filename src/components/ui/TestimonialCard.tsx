@@ -1,7 +1,6 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import dictionary from '@/lib/dictionary'
 import type { Testimonial } from '@/types'
 
 interface TestimonialCardProps {
@@ -10,7 +9,8 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const locale = useLocale() as 'en' | 'es'
-  const item = dictionary.testimonials.items[parseInt(testimonial.id)]
+  const quote = typeof testimonial.quoteKey === 'object' ? testimonial.quoteKey[locale] : testimonial.quoteKey
+  const location = typeof testimonial.location === 'object' ? testimonial.location[locale] : testimonial.location
 
   return (
     <div className="bg-surface border border-[#DDE2E8] rounded-[16px] p-7 text-center transition-all duration-200 hover:shadow-[0_4px_12px_rgba(15,37,71,0.10)] hover:-translate-y-0.5">
@@ -19,11 +19,11 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
       </div>
 
       <blockquote className="text-[17px] font-medium leading-relaxed max-w-full">
-        {item.quote[locale]}
+        {quote}
       </blockquote>
 
       <p className="text-muted text-sm mt-5">
-        <strong className="text-fg font-semibold">{testimonial.name}</strong> · {item.location[locale]}
+        <strong className="text-fg font-semibold">{testimonial.name}</strong>{location ? ` · ${location}` : ''}
       </p>
     </div>
   )

@@ -1,18 +1,21 @@
 'use client'
 
 import { useLocale } from 'next-intl'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
+import { client, urlFor } from '@/lib/sanity'
 
 interface GalleryImage {
-  src: string
-  alt: string
+  _id: string
+  title: string
   label: string
-  span?: number
+  image: any
+  span2?: boolean
 }
 
-const images: GalleryImage[] = [
+const fallbackImages = [
   { src: '/images/black-suv.jpg', alt: 'Black SUV full detail — River Oaks', label: 'Black SUV — Full Detail · River Oaks', span: 2 },
   { src: '/images/white-sedan-exterior.jpg', alt: 'White sedan exterior wash — The Heights', label: 'White Sedan — Exterior Wash · The Heights' },
   { src: '/images/red-sports-car-ceramic.jpg', alt: 'Red sports car ceramic coat — Galleria', label: 'Red Sports Car — Ceramic Coat · Galleria' },
@@ -25,6 +28,16 @@ const images: GalleryImage[] = [
 
 export default function Gallery() {
   const locale = useLocale() as 'en' | 'es'
+  const [images, setImages] = useState<GalleryImage[] | null>(null)
+
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return
+    client.fetch<GalleryImage[]>(`*[_type == "galleryImage"] | order(order asc){_id, title, label, image, span2}`)
+      .then(setImages)
+      .catch(() => {})
+  }, [])
+
+  const showImages = images ?? fallbackImages
 
   return (
     <section id="gallery" className="py-[clamp(3rem,8vw,6rem)]">
@@ -42,23 +55,29 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className={`relative aspect-[4/3] rounded-[16px] overflow-hidden border border-[#DDE2E8] bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group ${img.span ? 'sm:col-span-2' : ''}`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
-                sizes={img.span ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'}
-              />
-              <div className="absolute bottom-3 left-3 right-3 bg-[rgba(10,20,38,0.75)] backdrop-blur-sm text-white px-2.5 py-1.5 rounded-md text-[11px] text-center font-medium">
-                {img.label}
+          {showImages.map((img: any, i: number) => {
+            const imgSrc = img.image ? urlFor(img.image).width(800).url() : img.src
+            const spanClass = (img.span2 || img.span === 2) ? 'sm:col-span-2' : ''
+
+            return (
+              <div
+                key={img._id || i}
+                className={`relative aspect-[4/3] rounded-[16px] overflow-hidden border border-[#DDE2E8] bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group ${spanClass}`}
+              >
+                <Image
+                  src={imgSrc}
+                  alt={img.alt || img.label}
+                  fill
+                  className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+                  sizes={spanClass ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'}
+                  unoptimized={!!img.image}
+                />
+                <div className="absolute bottom-3 left-3 right-3 bg-[rgba(10,20,38,0.75)] backdrop-blur-sm text-white px-2.5 py-1.5 rounded-md text-[11px] text-center font-medium">
+                  {img.label}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

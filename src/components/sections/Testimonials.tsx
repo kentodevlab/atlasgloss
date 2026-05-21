@@ -1,12 +1,14 @@
 'use client'
 
 import { useLocale } from 'next-intl'
+import { useEffect, useState } from 'react'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
 import TestimonialCard from '@/components/ui/TestimonialCard'
 import type { Testimonial } from '@/types'
+import { client } from '@/lib/sanity'
 
-const testimonials: Testimonial[] = [
+const fallbackTestimonials: Testimonial[] = [
   { id: '0', name: 'Carlos M.', location: 'Katy, TX', stars: 5, quoteKey: '' },
   { id: '1', name: 'Sarah T.', location: 'River Oaks, TX', stars: 5, quoteKey: '' },
   { id: '2', name: 'James R.', location: 'The Heights, TX', stars: 5, quoteKey: '' },
@@ -14,6 +16,25 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   const locale = useLocale() as 'en' | 'es'
+  const [testimonials, setTestimonials] = useState<Testimonial[] | null>(null)
+
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return
+    client.fetch<any[]>(`*[_type == "testimonial"] | order(order asc){author, location, quote, stars, order}`)
+      .then((data) => {
+        const mapped = data.map((t, i) => ({
+          id: String(i),
+          name: t.author,
+          location: t.location || '',
+          stars: t.stars || 5,
+          quoteKey: t.quote || '',
+        }))
+        setTestimonials(mapped)
+      })
+      .catch(() => {})
+  }, [])
+
+  const displayTestimonials = testimonials ?? fallbackTestimonials
 
   return (
     <section id="testimonials" className="py-[clamp(3rem,8vw,6rem)]">
@@ -28,7 +49,7 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((tst) => (
+          {displayTestimonials.map((tst) => (
             <TestimonialCard key={tst.id} testimonial={tst} />
           ))}
         </div>
