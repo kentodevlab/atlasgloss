@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useLocale } from 'next-intl'
+import Image from 'next/image'
 import { Link } from '@/navigation'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
@@ -16,8 +17,9 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 bg-page/95 dark:bg-navy/95 backdrop-blur-md border-b border-black/8 dark:border-white/8">
       <div className="container-ag flex items-center justify-between py-3.5">
-        <Link href="/" className="font-[family-name:var(--font-display)] text-[22px] font-bold tracking-[0.04em] uppercase text-fg dark:text-white no-underline">
-          ATLAS <span className="text-blue-bright">GLOSS</span>
+        <Link href="/" className="no-underline block">
+          <Image src="/logo-light.png" alt="Atlas Gloss" width={160} height={40} className="block dark:hidden h-10 w-auto" priority />
+          <Image src="/logo-dark.png" alt="Atlas Gloss" width={160} height={40} className="hidden dark:block h-10 w-auto" priority />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
