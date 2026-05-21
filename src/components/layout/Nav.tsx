@@ -17,8 +17,8 @@ export default function Nav() {
     <header className="sticky top-0 z-40 bg-page/95 dark:bg-navy/95 backdrop-blur-md border-b border-black/8 dark:border-white/8">
       <div className="container-ag flex items-center justify-between py-3.5">
         <Link href="/" className="no-underline block leading-none">
-          <img src="/logo-light.png" alt="Atlas Gloss" className="block dark:hidden h-6 w-auto" />
-          <img src="/logo-dark.png" alt="Atlas Gloss" className="hidden dark:block h-6 w-auto" />
+          <img src="/logo-light.svg" alt="Atlas Gloss" className="block dark:hidden h-6 w-auto" />
+          <img src="/logo-dark.svg" alt="Atlas Gloss" className="hidden dark:block h-6 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
