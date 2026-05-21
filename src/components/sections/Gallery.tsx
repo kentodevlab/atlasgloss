@@ -103,7 +103,7 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
     <button
       onClick={onClick}
       aria-label={isFlipped ? `Close story for ${img.label}` : `View story for ${img.label}`}
-      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 scale-[1.08] md:scale-150 overflow-visible' : 'z-0 overflow-hidden'}`}
+      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 scale-[1.35] md:scale-150 overflow-visible' : 'z-0 overflow-hidden'}`}
     >
       <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
         <div className="absolute inset-0 [backface-visibility:hidden] overflow-hidden rounded-[16px]">
@@ -118,11 +118,11 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
             {img.label}
           </div>
         </div>
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy rounded-[16px] p-4 flex flex-col justify-center overflow-y-auto">
-          <p className="text-white/85 text-[13px] leading-relaxed">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy rounded-[16px] p-5 md:p-6 flex flex-col justify-start overflow-y-auto">
+          <p className="text-white/85 text-[14px] md:text-[13px] leading-relaxed">
             {img.story[locale]}
           </p>
-          <p className="text-white/40 text-[10px] mt-3 text-center">Click to close</p>
+          <p className="text-white/40 text-[11px] mt-4 text-center shrink-0">Click to close</p>
         </div>
       </div>
     </button>
@@ -184,7 +184,7 @@ export default function Gallery() {
 
         <div className="md:hidden grid grid-cols-2 gap-3">
           {images.map((img, i) => (
-            <div key={i} className="aspect-[4/3]">
+            <div key={i} className={flipped === i ? 'min-h-[320px]' : 'aspect-[4/3]'}>
               <FlipCard
                 img={img}
                 locale={locale}
