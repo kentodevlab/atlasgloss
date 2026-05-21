@@ -42,7 +42,7 @@ export default function Footer() {
             {t(dictionary.footer.copyright, locale)}
           </span>
           <span className="font-[family-name:var(--font-mono)] text-[11px]">
-            Developed with ❤️ by <a href="https://kentodevlab.com" target="_blank" rel="noopener noreferrer" className="text-blue-bright hover:underline"><p class="font-bold">KentoDevLab</p></a>
+            Developed with ❤️ by <a href="https://kentodevlab.com" target="_blank" rel="noopener noreferrer" className="text-blue-bright hover:underline" class="font-bold">KentoDevLab</a>
           </span>
         </div>
       </div>
