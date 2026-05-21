@@ -62,7 +62,7 @@ export default function Gallery() {
             return (
               <div
                 key={img._id || i}
-                className={`relative aspect-[4/3] rounded-[16px] overflow-hidden border border-[#DDE2E8] bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group ${spanClass}`}
+                className={`relative aspect-[4/3] rounded-[16px] overflow-hidden border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group ${spanClass}`}
               >
                 <Image
                   src={imgSrc}

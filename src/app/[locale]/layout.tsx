@@ -5,6 +5,8 @@ import { locales } from '@/i18n/request'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import LanguageToggle from '@/components/layout/LanguageToggle'
+import ThemeToggle from '@/components/layout/ThemeToggle'
+import ThemeProvider from '@/components/layout/ThemeProvider'
 
 interface LocaleLayoutProps {
   children: ReactNode
@@ -20,10 +22,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <NextIntlClientProvider>
-      <Nav />
-      {children}
-      <Footer />
-      <LanguageToggle />
+      <ThemeProvider>
+        <Nav />
+        {children}
+        <Footer />
+        <div className="fixed bottom-5 right-5 z-50 flex gap-2">
+          <ThemeToggle />
+          <LanguageToggle />
+        </div>
+      </ThemeProvider>
     </NextIntlClientProvider>
   )
 }

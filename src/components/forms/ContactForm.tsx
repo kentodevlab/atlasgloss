@@ -34,7 +34,7 @@ export default function ContactForm() {
           name="name"
           required
           minLength={2}
-          className="w-full px-3.5 py-3 border border-[#DDE2E8] rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
+          className="w-full px-3.5 py-3 border border-border rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
         />
         {state.errors?.name && <p className="text-red-500 text-xs">{state.errors.name[0]}</p>}
       </div>
@@ -48,7 +48,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="w-full px-3.5 py-3 border border-[#DDE2E8] rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
+          className="w-full px-3.5 py-3 border border-border rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
         />
         {state.errors?.email && <p className="text-red-500 text-xs">{state.errors.email[0]}</p>}
       </div>
@@ -61,7 +61,7 @@ export default function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
-          className="w-full px-3.5 py-3 border border-[#DDE2E8] rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
+          className="w-full px-3.5 py-3 border border-border rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
         />
       </div>
 
@@ -75,7 +75,7 @@ export default function ContactForm() {
           required
           minLength={10}
           rows={4}
-          className="w-full px-3.5 py-3 border border-[#DDE2E8] rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright resize-y"
+          className="w-full px-3.5 py-3 border border-border rounded-[10px] bg-surface text-fg text-[15px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright resize-y"
         />
         {state.errors?.message && <p className="text-red-500 text-xs">{state.errors.message[0]}</p>}
       </div>

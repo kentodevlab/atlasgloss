@@ -26,7 +26,7 @@ export default function NewsletterForm() {
         type="email"
         required
         placeholder={t(dictionary.newsletter.placeholder, locale)}
-        className="flex-1 px-3.5 py-2.5 border border-[#DDE2E8] rounded-[10px] bg-surface text-fg text-[13px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
+        className="flex-1 px-3.5 py-2.5 border border-border rounded-[10px] bg-surface text-fg text-[13px] outline-2 outline-transparent focus:outline-blue-bright/20 focus:border-blue-bright"
       />
       <button
         type="submit"

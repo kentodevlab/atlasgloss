@@ -8,7 +8,7 @@ export default function Footer() {
   const locale = useLocale() as 'en' | 'es'
 
   return (
-    <footer className="bg-surface border-t border-[#DDE2E8] py-14 text-muted text-xs">
+    <footer className="bg-surface border-t border-border py-14 text-muted text-xs">
       <div className="container-ag">
         <div className="flex flex-col md:flex-row justify-between gap-6">
           <div className="max-w-[40ch]">
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <hr className="border-t border-[#DDE2E8] my-6" />
+        <hr className="border-t border-border my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="font-[family-name:var(--font-mono)]">

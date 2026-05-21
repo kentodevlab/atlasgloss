@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/navigation'
 import { useTransition } from 'react'
 
 export default function LanguageToggle() {
@@ -12,13 +12,12 @@ export default function LanguageToggle() {
 
   function switchLang(next: string) {
     startTransition(() => {
-      const path = pathname.replace(/^\/(en|es)/, `/${next}`)
-      router.replace(path)
+      router.replace(pathname, { locale: next })
     })
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex gap-1 bg-surface border border-[#DDE2E8] rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]">
+    <div className="flex gap-1 bg-surface border border-border rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]">
       <button
         onClick={() => switchLang('en')}
         disabled={isPending}

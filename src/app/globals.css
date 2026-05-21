@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-navy: #0F2547;
   --color-blue-bright: #2A78F0;
@@ -10,10 +12,20 @@
   --color-surface: #FFFFFF;
   --color-fg: #0A1426;
   --color-muted: #6B7480;
+  --color-border: #DDE2E8;
 
   --font-display: var(--font-saira), 'Oswald', 'Arial Narrow', sans-serif;
   --font-body: var(--font-manrope), 'Helvetica Neue', system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+.dark {
+  --color-page: #0A1426;
+  --color-surface: #1A2332;
+  --color-fg: #F0F4F8;
+  --color-muted: #9CA3AF;
+  --color-border: #2D3748;
+  --color-houston-soft: #3D2A1C;
 }
 
 @layer base {
@@ -23,6 +35,7 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s, color 0.2s;
   }
 }
 

@@ -57,8 +57,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${saira.variable} ${manrope.variable} ${jetbrains.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${saira.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()`
+        }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
