@@ -9,7 +9,7 @@ export default function BookingCTA() {
   const locale = useLocale() as 'en' | 'es'
 
   return (
-    <section id="booking" className="py-[clamp(3rem,8vw,6rem)] bg-navy text-white text-center">
+    <section id="booking" className="py-[clamp(3rem,8vw,6rem)] bg-navy text-white text-center scroll-mt-24">
       <div className="container-ag flex flex-col gap-14">
         <div className="max-w-[36ch] mx-auto">
           <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-[rgba(255,255,255,0.6)] mb-5">

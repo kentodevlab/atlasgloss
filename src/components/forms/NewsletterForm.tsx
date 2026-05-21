@@ -21,7 +21,11 @@ export default function NewsletterForm() {
 
   return (
     <form action={formAction} className="flex gap-2">
+      <label htmlFor="newsletter-email" className="sr-only">
+        {t(dictionary.newsletter.placeholder, locale)}
+      </label>
       <input
+        id="newsletter-email"
         name="email"
         type="email"
         required

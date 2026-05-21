@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-surface border-t border-border py-14 text-muted text-xs">
       <div className="container-ag">
-        <div className="flex flex-col md:flex-row justify-between gap-6">
+        <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="max-w-[40ch]">
             <strong className="font-[family-name:var(--font-display)] text-lg tracking-[0.04em] uppercase">
               ATLAS <span className="text-blue-bright">GLOSS</span>
@@ -18,6 +18,25 @@ export default function Footer() {
             <p className="mt-2 text-[13px] text-muted">
               {t(dictionary.footer.tagline, locale)}
             </p>
+            <div className="flex gap-3 mt-4">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted hover:text-blue-bright transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                </svg>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted hover:text-blue-bright transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-muted hover:text-blue-bright transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46L20 4" />
+                </svg>
+              </a>
+            </div>
           </div>
           <div className="flex flex-col gap-2 text-right text-[13px]">
             <span className="font-[family-name:var(--font-mono)]">

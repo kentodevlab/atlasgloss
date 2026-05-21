@@ -9,7 +9,9 @@ export default function Hero() {
   const locale = useLocale() as 'en' | 'es'
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+    <section
+      id="hero"
+      className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: "url('/images/hero-bg.jpg')",
         backgroundSize: 'cover',
@@ -30,8 +32,12 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-[clamp(1.0625rem,2vw,1.3125rem)] text-[rgba(255,255,255,0.75)] max-w-[52ch] mx-auto mb-8">
+        <p className="text-[clamp(1.0625rem,2vw,1.3125rem)] text-[rgba(255,255,255,0.75)] max-w-[52ch] mx-auto mb-4">
           {t(dictionary.hero.lead, locale)}
+        </p>
+
+        <p className="text-[rgba(255,255,255,0.5)] text-sm font-[family-name:var(--font-mono)] mb-8">
+          {locale === 'es' ? 'Desde $29 · Lavado a mano · Houston, TX' : 'From $29 · Hand wash · Houston, TX'}
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">

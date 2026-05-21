@@ -38,7 +38,7 @@ export default function Services() {
   const locale = useLocale() as 'en' | 'es'
 
   return (
-    <section id="services" className="py-[clamp(3rem,8vw,6rem)] bg-surface">
+    <section id="services" className="py-[clamp(3rem,8vw,6rem)] bg-surface scroll-mt-24">
       <div className="container-ag flex flex-col gap-14">
         <div className="max-w-[36ch] text-center mx-auto">
           <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">

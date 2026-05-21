@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer'
 import LanguageToggle from '@/components/layout/LanguageToggle'
 import ThemeToggle from '@/components/layout/ThemeToggle'
 import ThemeProvider from '@/components/layout/ThemeProvider'
+import SkipLink from '@/components/ui/SkipLink'
 
 interface LocaleLayoutProps {
   children: ReactNode
@@ -23,6 +24,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider>
       <ThemeProvider>
+        <SkipLink />
         <Nav />
         {children}
         <Footer />
