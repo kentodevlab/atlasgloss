@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useLayoutEffect, useRef } from 'react'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { t } from '@/lib/dictionary'
@@ -99,46 +99,51 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
   isFlipped: boolean
   onClick: () => void
 }) {
-  return (
-    <>
-      <button
-        onClick={onClick}
-        aria-label={isFlipped ? `Close story for ${img.label}` : `View story for ${img.label}`}
-        className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 scale-150 overflow-visible max-md:invisible' : 'z-0 overflow-hidden'}`}
-      >
-        <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
-          <div className="absolute inset-0 [backface-visibility:hidden] overflow-hidden rounded-[16px]">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            />
-            <div className="absolute bottom-3 left-3 right-3 bg-[rgba(10,20,38,0.75)] backdrop-blur-sm text-white px-2.5 py-1.5 rounded-md text-[11px] text-center font-medium">
-              {img.label}
-            </div>
-          </div>
-          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy rounded-[16px] p-5 md:p-6 flex flex-col justify-center overflow-y-auto">
-            <p className="text-white/85 text-[13px] leading-relaxed">
-              {img.story[locale]}
-            </p>
-            <p className="text-white/40 text-[10px] mt-3 text-center shrink-0">Click to close</p>
-          </div>
-        </div>
-      </button>
+  const ref = useRef<HTMLButtonElement>(null)
 
-      {isFlipped && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/40 md:hidden" onClick={onClick}>
-          <div className="w-full max-w-sm bg-navy rounded-[16px] p-6 shadow-xl" onClick={e => e.stopPropagation()}>
-            <p className="text-white/85 text-[15px] leading-relaxed">
-              {img.story[locale]}
-            </p>
-            <p className="text-white/40 text-[11px] mt-5 text-center">Tap to close</p>
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (!isFlipped) {
+      el.style.removeProperty('transform')
+      return
+    }
+    const rect = el.getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    const tx = window.innerWidth / 2 - cx
+    const ty = window.innerHeight / 2 - cy
+    el.style.transform = `translate(${tx}px, ${ty}px) scale(1.5)`
+  }, [isFlipped])
+
+  return (
+    <button
+      ref={ref}
+      onClick={onClick}
+      aria-label={isFlipped ? `Close story for ${img.label}` : `View story for ${img.label}`}
+      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${isFlipped ? 'z-50 overflow-visible' : 'z-0 overflow-hidden'}`}
+    >
+      <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
+        <div className="absolute inset-0 [backface-visibility:hidden] overflow-hidden rounded-[16px]">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+          <div className="absolute bottom-3 left-3 right-3 bg-[rgba(10,20,38,0.75)] backdrop-blur-sm text-white px-2.5 py-1.5 rounded-md text-[11px] text-center font-medium">
+            {img.label}
           </div>
         </div>
-      )}
-    </>
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy rounded-[16px] p-5 md:p-6 flex flex-col justify-center overflow-y-auto">
+          <p className="text-white/85 text-[13px] leading-relaxed">
+            {img.story[locale]}
+          </p>
+          <p className="text-white/40 text-[10px] mt-3 text-center shrink-0">Click to close</p>
+        </div>
+      </div>
+    </button>
   )
 }
 
