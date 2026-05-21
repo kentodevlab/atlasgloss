@@ -11,7 +11,7 @@ const dictionary = {
     eyebrow: { en: 'PREMIUM HAND CAR WASH · HOUSTON, TX', es: 'LAVADO DE AUTOS PREMIUM A MANO · HOUSTON, TX' },
     titleStart: { en: 'Your car deserves a ', es: 'Tu auto merece un ' },
     titleAccent: { en: 'mirror finish', es: 'acabado espejo' },
-    lead: { en: 'Hand-washed with precision care. Every detail, every curve — finished to a showroom shine.', es: 'Lavado a mano con cuidado de precisión. Cada detalle, cada curva — con brillo de vitrina.' },
+    lead: { en: 'Hand-washed with precision care. Every detail, every curve — finished to a showroom shine.', es: 'Lavado a mano con cuidado y precisión. Cada detalle, cada curva — con brillo de vitrina.' },
     ctaPrimary: { en: 'Book Your Wash', es: 'Reserva tu Lavado' },
     ctaSecondary: { en: 'See Packages', es: 'Ver Paquetes' },
   },
@@ -113,7 +113,7 @@ const dictionary = {
     error: { en: 'Something went wrong.', es: 'Algo salió mal.' },
   },
   footer: {
-    tagline: { en: 'Premium hand car wash. Mirror-finished, every time. Serving Houston, TX since 2021.', es: 'Lavado premium a mano. Acabado espejo, siempre. Sirviendo Houston, TX desde 2021.' },
+    tagline: { en: 'Premium hand car wash. Mirror-finished, every time. Serving Houston, TX since 2023.', es: 'Lavado premium a mano. Acabado espejo, siempre. Sirviendo Houston, TX desde 2023.' },
     weekday: { en: 'Mon–Sat: 7:00 AM – 7:00 PM', es: 'Lun–Sáb: 7:00 AM – 7:00 PM' },
     sunday: { en: 'Sun: 8:00 AM – 5:00 PM', es: 'Dom: 8:00 AM – 5:00 PM' },
     copyright: { en: '© 2026 Atlas Gloss. All rights reserved.', es: '© 2026 Atlas Gloss. Todos los derechos reservados.' },
