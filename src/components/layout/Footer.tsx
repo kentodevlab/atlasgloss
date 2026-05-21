@@ -46,7 +46,7 @@ export default function Footer() {
               {t(dictionary.footer.sunday, locale)}
             </span>
             <span className="font-[family-name:var(--font-mono)]">
-              Houston, TX · Address: 23050 Morton Ranch Rd Apt 2321
+              Katy, Houston, TX · 23050 Morton Ranch Rd Apt 2321
             </span>
             <span className="font-[family-name:var(--font-mono)]">
               Phone: (346) 978-7617
