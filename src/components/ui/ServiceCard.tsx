@@ -34,7 +34,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   return (
     <div className={`relative bg-surface border rounded-[16px] p-5 md:p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,37,71,0.16),0_4px_8px_rgba(15,37,71,0.06)] ${service.featured ? 'border-blue-bright border-2' : 'border-border'}`}>
       {service.featured && svc.badge && (
-        <span className="absolute -top-3 right-6 bg-blue-bright text-white font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] px-4 md:px-6 py-1.5 rotate-45 origin-bottom-left text-center leading-tight whitespace-nowrap">
+        <span className="absolute top-4 right-4 bg-blue-bright text-white font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] px-3 py-1 rounded-md">
           {svc.badge[locale]}
         </span>
       )}
