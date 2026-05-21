@@ -1,7 +1,6 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import Image from 'next/image'
 import { t } from '@/lib/dictionary'
 import dictionary from '@/lib/dictionary'
 
@@ -13,8 +12,8 @@ export default function Footer() {
       <div className="container-ag">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="max-w-[40ch]">
-            <Image src="/logo-light.png" alt="Atlas Gloss" width={140} height={35} className="block dark:hidden h-[35px] w-auto" />
-            <Image src="/logo-dark.png" alt="Atlas Gloss" width={140} height={35} className="hidden dark:block h-[35px] w-auto" />
+            <img src="/logo-light.png" alt="Atlas Gloss" className="block dark:hidden h-[35px] w-auto" />
+            <img src="/logo-dark.png" alt="Atlas Gloss" className="hidden dark:block h-[35px] w-auto" />
             <p className="mt-2 text-[13px] text-muted">
               {t(dictionary.footer.tagline, locale)}
             </p>
