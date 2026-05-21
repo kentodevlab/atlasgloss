@@ -41,8 +41,8 @@ export default function Footer() {
           <span className="font-[family-name:var(--font-mono)]">
             {t(dictionary.footer.copyright, locale)}
           </span>
-          <span className="font-[family-name:var(--font-mono)]">
-            {t(dictionary.footer.tag, locale)}
+          <span className="font-[family-name:var(--font-mono)] text-[11px]">
+            Developed by <a href="https://kentodevlab.com" target="_blank" rel="noopener noreferrer" className="text-blue-bright hover:underline">kentodevlab.com</a>
           </span>
         </div>
       </div>
