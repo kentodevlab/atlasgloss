@@ -30,11 +30,11 @@ export default function Nav() {
           <img src="/logo-dark.svg" alt="Atlas Gloss" className="hidden dark:block h-6 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Main">
           {navLinks.map((key) => {
             const href = key === 'bookNow' ? '/#booking' : `/#${key === 'reviews' ? 'testimonials' : key}`
             return (
-              <Link key={key} href={href} className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors">
+              <Link key={key} href={href} className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-4 rounded-sm">
                 {t(dictionary.nav[key], locale)}
               </Link>
             )
@@ -46,7 +46,7 @@ export default function Nav() {
 
           <Link
             href="/#booking"
-            className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-[10px] bg-blue-bright text-white text-sm font-semibold border border-blue-bright no-underline hover:bg-blue-deep transition-colors"
+            className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-[10px] bg-blue-bright text-white text-sm font-semibold border border-blue-bright no-underline hover:bg-blue-deep transition-colors focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
           >
             {t(dictionary.nav.bookNow, locale)}
           </Link>
@@ -54,8 +54,9 @@ export default function Nav() {
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-controls="mobile-menu"
             aria-expanded={open}
-            className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer"
+            className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
           >
             <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'rotate-45 translate-y-[5px]' : ''}`} />
             <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
@@ -65,8 +66,8 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-page/98 dark:bg-navy/98 border-t border-black/8 dark:border-white/8">
-          <nav className="container-ag flex flex-col py-4 gap-3">
+        <div id="mobile-menu" className="md:hidden bg-page/98 dark:bg-navy/98 border-t border-black/8 dark:border-white/8">
+          <nav className="container-ag flex flex-col py-4 gap-3" aria-label="Mobile">
             {navLinks.map((key) => {
               const href = key === 'bookNow' ? '/#booking' : `/#${key === 'reviews' ? 'testimonials' : key}`
               return (
@@ -74,7 +75,7 @@ export default function Nav() {
                   key={key}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors py-2"
+                  className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors py-2 focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 rounded-sm"
                 >
                   {t(dictionary.nav[key], locale)}
                 </Link>
@@ -83,7 +84,7 @@ export default function Nav() {
             <Link
               href="/#booking"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-[10px] bg-blue-bright text-white text-sm font-semibold no-underline mt-2"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-[10px] bg-blue-bright text-white text-sm font-semibold no-underline mt-2 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             >
               {t(dictionary.nav.bookNow, locale)}
             </Link>

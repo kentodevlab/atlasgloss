@@ -17,11 +17,12 @@ export default function LanguageToggle() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex gap-1 bg-surface border border-border rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]">
+    <div className="fixed bottom-5 right-5 z-50 flex gap-1 bg-surface border border-border rounded-full p-1 shadow-[0_4px_12px_rgba(15,37,71,0.10)]" role="group" aria-label="Language selector">
       <button
         onClick={() => switchLang('en')}
         disabled={isPending}
-        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+        aria-pressed={locale === 'en'}
+        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${
           locale === 'en' ? 'bg-blue-bright text-white' : 'bg-transparent text-muted'
         }`}
       >
@@ -30,7 +31,8 @@ export default function LanguageToggle() {
       <button
         onClick={() => switchLang('es')}
         disabled={isPending}
-        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+        aria-pressed={locale === 'es'}
+        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-blue-bright focus-visible:outline-offset-2 ${
           locale === 'es' ? 'bg-blue-bright text-white' : 'bg-transparent text-muted'
         }`}
       >

@@ -6,6 +6,8 @@ import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import LanguageToggle from '@/components/layout/LanguageToggle'
 import ThemeProvider from '@/components/layout/ThemeProvider'
+import AccessibilityProvider from '@/components/layout/AccessibilityProvider'
+import AccessibilityPanel from '@/components/layout/AccessibilityPanel'
 import SkipLink from '@/components/ui/SkipLink'
 
 interface LocaleLayoutProps {
@@ -23,11 +25,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider>
       <ThemeProvider>
-        <SkipLink />
-        <Nav />
-        {children}
-        <Footer />
-        <LanguageToggle />
+        <AccessibilityProvider>
+          <SkipLink />
+          <Nav />
+          {children}
+          <Footer />
+          <LanguageToggle />
+          <AccessibilityPanel />
+        </AccessibilityProvider>
       </ThemeProvider>
     </NextIntlClientProvider>
   )
