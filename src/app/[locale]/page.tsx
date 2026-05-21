@@ -17,7 +17,7 @@ export default function HomePage() {
       <SectionAnimator as="div" delay={100}><Testimonials /></SectionAnimator>
       <SectionAnimator><LocationMap /></SectionAnimator>
       <BookingCTA />
-      <SectionAnimator as="div" className="py-[clamp(3rem,8vw,6rem)] bg-surface">
+      <SectionAnimator as="div" className="py-[clamp(3rem,8vw,6rem)] bg-surface dark:bg-[#1A2332]">
         <div className="container-ag">
           <div className="max-w-[36ch] text-center mx-auto mb-10">
             <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">CONTACT</p>

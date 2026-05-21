@@ -8,7 +8,7 @@ export default function Footer() {
   const locale = useLocale() as 'en' | 'es'
 
   return (
-    <footer className="bg-surface border-t border-border py-14 text-muted text-xs">
+    <footer className="bg-surface dark:bg-[#1A2332] border-t border-border py-14 text-muted text-xs">
       <div className="container-ag">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="max-w-[40ch]">

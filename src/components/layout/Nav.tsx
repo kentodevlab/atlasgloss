@@ -14,9 +14,9 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 bg-[rgba(15,37,71,0.96)] backdrop-blur-md border-b border-[rgba(255,255,255,0.08)]">
+    <header className="sticky top-0 z-40 bg-page/95 dark:bg-navy/95 backdrop-blur-md border-b border-black/8 dark:border-white/8">
       <div className="container-ag flex items-center justify-between py-3.5">
-        <Link href="/" className="font-[family-name:var(--font-display)] text-[22px] font-bold tracking-[0.04em] uppercase text-white no-underline">
+        <Link href="/" className="font-[family-name:var(--font-display)] text-[22px] font-bold tracking-[0.04em] uppercase text-fg dark:text-white no-underline">
           ATLAS <span className="text-blue-bright">GLOSS</span>
         </Link>
 
@@ -24,7 +24,7 @@ export default function Nav() {
           {navLinks.map((key) => {
             const href = key === 'bookNow' ? '/#booking' : `/#${key === 'reviews' ? 'testimonials' : key}`
             return (
-              <Link key={key} href={href} className="text-sm font-medium text-[rgba(255,255,255,0.65)] hover:text-white no-underline transition-colors">
+              <Link key={key} href={href} className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors">
                 {t(dictionary.nav[key], locale)}
               </Link>
             )
@@ -47,15 +47,15 @@ export default function Nav() {
             aria-expanded={open}
             className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer"
           >
-            <span className={`block w-6 h-[2px] bg-white rounded transition-all duration-200 ${open ? 'rotate-45 translate-y-[5px]' : ''}`} />
-            <span className={`block w-6 h-[2px] bg-white rounded transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-[2px] bg-white rounded transition-all duration-200 ${open ? '-rotate-45 -translate-y-[5px]' : ''}`} />
+            <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'rotate-45 translate-y-[5px]' : ''}`} />
+            <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-[2px] bg-fg dark:bg-white rounded transition-all duration-200 ${open ? '-rotate-45 -translate-y-[5px]' : ''}`} />
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="md:hidden bg-[rgba(15,37,71,0.98)] border-t border-[rgba(255,255,255,0.08)]">
+        <div className="md:hidden bg-page/98 dark:bg-navy/98 border-t border-black/8 dark:border-white/8">
           <nav className="container-ag flex flex-col py-4 gap-3">
             {navLinks.map((key) => {
               const href = key === 'bookNow' ? '/#booking' : `/#${key === 'reviews' ? 'testimonials' : key}`
@@ -64,7 +64,7 @@ export default function Nav() {
                   key={key}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-[rgba(255,255,255,0.65)] hover:text-white no-underline transition-colors py-2"
+                  className="text-sm font-medium text-fg/65 dark:text-[rgba(255,255,255,0.65)] hover:text-fg dark:hover:text-white no-underline transition-colors py-2"
                 >
                   {t(dictionary.nav[key], locale)}
                 </Link>
