@@ -102,10 +102,10 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
   return (
     <button
       onClick={onClick}
-      className="relative w-full h-full rounded-[16px] overflow-hidden border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px]"
+      className={`relative w-full h-full rounded-[16px] border border-border bg-gradient-to-br from-blue-bright/10 to-[rgba(15,37,71,0.05)] group cursor-pointer text-left p-0 [perspective:800px] transition-all duration-500 ${isFlipped ? 'z-50 scale-150 overflow-visible' : 'z-0 overflow-hidden'}`}
     >
       <div className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
-        <div className="absolute inset-0 [backface-visibility:hidden]">
+        <div className="absolute inset-0 [backface-visibility:hidden] overflow-hidden rounded-[16px]">
           <Image
             src={img.src}
             alt={img.alt}
@@ -117,7 +117,7 @@ function FlipCard({ img, locale, isFlipped, onClick }: {
             {img.label}
           </div>
         </div>
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy p-4 flex flex-col justify-center overflow-y-auto">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-navy rounded-[16px] p-4 flex flex-col justify-center overflow-y-auto">
           <p className="text-white/85 text-[13px] leading-relaxed">
             {img.story[locale]}
           </p>
