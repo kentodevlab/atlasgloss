@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocale } from 'next-intl'
 import { Link } from '@/navigation'
 import { t } from '@/lib/dictionary'
@@ -12,9 +12,18 @@ const navLinks = ['services', 'gallery', 'reviews', 'bookNow'] as const
 export default function Nav() {
   const locale = useLocale() as 'en' | 'es'
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 500)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-40 bg-page/95 dark:bg-navy/95 backdrop-blur-md border-b border-black/8 dark:border-white/8">
+    <header className={`sticky top-0 z-40 border-b backdrop-blur-xl transition-all duration-300 ${scrolled ? 'bg-page/[0.08] dark:bg-navy/[0.08] border-black/8 dark:border-white/8' : 'bg-page/95 dark:bg-navy/95 border-black/8 dark:border-white/8'}`}>
       <div className="container-ag flex items-center justify-between py-3.5">
         <Link href="/" className="no-underline block leading-none">
           <img src="/logo-light.svg" alt="Atlas Gloss" className="block dark:hidden h-6 w-auto" />
