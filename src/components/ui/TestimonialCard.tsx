@@ -22,22 +22,24 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const bg = colors[parseInt(testimonial.id) % colors.length]
 
   return (
-    <div className="bg-card border border-border rounded-[16px] p-7 text-center transition-all duration-200 hover:shadow-[0_4px_12px_rgba(15,37,71,0.10)] hover:-translate-y-0.5">
-      <div className={`w-12 h-12 mx-auto mb-4 rounded-full ${bg} text-white grid place-items-center font-[family-name:var(--font-display)] text-sm font-bold`}>
-        {initials}
+    <div className="rounded-[1.75rem] p-[2px] bg-black/[0.04] dark:bg-white/[0.06] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5">
+      <div className="bg-card rounded-[calc(1.75rem-4px)] p-7 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_4px_12px_rgba(15,37,71,0.10),inset_0_1px_0_rgba(255,255,255,0.12)]">
+        <div className={`w-12 h-12 mx-auto mb-4 rounded-full ${bg} text-white grid place-items-center font-[family-name:var(--font-display)] text-sm font-bold`}>
+          {initials}
+        </div>
+
+        <div className="text-houston text-base tracking-[2px] mb-3">
+          {'★'.repeat(testimonial.stars)}
+        </div>
+
+        <blockquote className="text-[17px] font-medium leading-relaxed max-w-full">
+          {item.quote[locale]}
+        </blockquote>
+
+        <p className="text-muted text-sm mt-5">
+          <strong className="text-fg font-semibold">{testimonial.name}</strong> · {item.location[locale]}
+        </p>
       </div>
-
-      <div className="text-houston text-base tracking-[2px] mb-3">
-        {'★'.repeat(testimonial.stars)}
-      </div>
-
-      <blockquote className="text-[17px] font-medium leading-relaxed max-w-full">
-        {item.quote[locale]}
-      </blockquote>
-
-      <p className="text-muted text-sm mt-5">
-        <strong className="text-fg font-semibold">{testimonial.name}</strong> · {item.location[locale]}
-      </p>
     </div>
   )
 }

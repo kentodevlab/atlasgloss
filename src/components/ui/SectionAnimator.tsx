@@ -17,7 +17,7 @@ export default function SectionAnimator({ children, className = '', as: Tag = 's
   return (
     <Tag
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
+      className={`transition-all duration-800 ease-[cubic-bezier(0.32,0.72,0,1)] ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
