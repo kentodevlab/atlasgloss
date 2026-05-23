@@ -32,7 +32,7 @@ export default function HomePage() {
       <SectionAnimator as="div" className="py-[clamp(3rem,8vw,6rem)] bg-surface dark:bg-[#1A2332]">
         <div className="container-ag">
           <div className="max-w-[36ch] text-center mx-auto mb-10">
-            <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">CONTACT</p>
+            <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">Contact</p>
             <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-[-0.015em]">Get in touch</h2>
           </div>
           <div className="max-w-md mx-auto">

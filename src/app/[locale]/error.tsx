@@ -10,7 +10,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   return (
     <main className="min-h-screen flex flex-col items-center justify-center gap-6 text-center px-4 bg-page">
       <h1 className="font-[family-name:var(--font-display)] text-[clamp(3rem,8vw,5rem)] font-extrabold text-blue-bright leading-none">
-        Oops!
+        Page failed to load
       </h1>
       <p className="text-muted text-lg max-w-md">
         Something went wrong. Please try again.

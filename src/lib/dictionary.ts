@@ -8,7 +8,7 @@ const dictionary = {
     bookNow: { en: 'Book Now', es: 'Reservar' },
   },
   hero: {
-    eyebrow: { en: 'PREMIUM HAND CAR WASH · HOUSTON, TX', es: 'LAVADO DE AUTOS PREMIUM A MANO · HOUSTON, TX' },
+    eyebrow: { en: 'Premium hand car wash · Houston, TX', es: 'Lavado de autos premium a mano · Houston, TX' },
     titleStart: { en: 'Your car deserves a ', es: 'Tu auto merece un ' },
     titleAccent: { en: 'mirror finish', es: 'acabado espejo' },
     lead: { en: 'Hand-washed with precision care. Every detail, every curve — finished to a showroom shine.', es: 'Lavado a mano con cuidado y precisión. Cada detalle, cada curva — con brillo de vitrina.' },
@@ -16,7 +16,7 @@ const dictionary = {
     ctaSecondary: { en: 'See Packages', es: 'Ver Paquetes' },
   },
   gallery: {
-    eyebrow: { en: 'OUR WORK', es: 'NUESTRO TRABAJO' },
+    eyebrow: { en: 'Our work', es: 'Nuestro trabajo' },
     title: { en: 'See the difference a hand wash makes', es: 'Mira la diferencia de un lavado a mano' },
     lead: { en: 'Real results from real clients across Houston. Every photo taken after an Atlas Gloss detail.', es: 'Resultados reales de clientes en Houston. Cada foto tomada después de un detalle Atlas Gloss.' },
   },
@@ -27,7 +27,7 @@ const dictionary = {
     years: { en: 'Years Serving Houston, TX', es: 'Años Sirviendo a Houston, TX' },
   },
   services: {
-    eyebrow: { en: 'WASH PACKAGES', es: 'PAQUETES DE LAVADO' },
+    eyebrow: { en: 'Wash packages', es: 'Paquetes de lavado' },
     title: { en: 'Choose your level of clean', es: 'Elige tu nivel de limpieza' },
     express: {
       name: { en: 'Express', es: 'Express' },
@@ -70,7 +70,7 @@ const dictionary = {
     },
   },
   testimonials: {
-    eyebrow: { en: 'CLIENT REVIEWS', es: 'RESEÑAS DE CLIENTES' },
+    eyebrow: { en: 'Client reviews', es: 'Reseñas de clientes' },
     title: { en: 'What Houston drivers say', es: 'Lo que dicen los conductores de Houston' },
     items: [
       {
@@ -91,7 +91,7 @@ const dictionary = {
     ],
   },
   booking: {
-    eyebrow: { en: 'BOOK YOUR APPOINTMENT', es: 'RESERVA TU CITA' },
+    eyebrow: { en: 'Book your appointment', es: 'Reserva tu cita' },
     title: { en: 'Ready for a mirror finish?', es: '¿Listo para un acabado espejo?' },
     lead: { en: 'Book online in 30 seconds. Pick your package, choose a time, and we\'ll handle the rest.', es: 'Reserva en línea en 30 segundos. Elige tu paquete, selecciona una hora y nosotros nos encargamos.' },
     cta: { en: 'Book Online Now →', es: 'Reservar Ahora →' },
@@ -109,13 +109,13 @@ const dictionary = {
     phoneLabel: { en: 'Phone', es: 'Teléfono' },
     messageLabel: { en: 'Message', es: 'Mensaje' },
     submit: { en: 'Send Message', es: 'Enviar Mensaje' },
-    success: { en: 'Thanks! We\'ll get back to you soon.', es: '¡Gracias! Te responderemos pronto.' },
+    success: { en: 'Thanks, we\'ll get back to you soon.', es: 'Gracias, te responderemos pronto.' },
     error: { en: 'Something went wrong. Please try again.', es: 'Algo salió mal. Intenta de nuevo.' },
   },
   newsletter: {
     placeholder: { en: 'Enter your email', es: 'Ingresa tu correo' },
     submit: { en: 'Subscribe', es: 'Suscribirse' },
-    success: { en: 'You\'re subscribed!', es: '¡Estás suscrito!' },
+    success: { en: 'You\'re subscribed', es: 'Estás suscrito' },
     error: { en: 'Something went wrong.', es: 'Algo salió mal.' },
   },
   footer: {

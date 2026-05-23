@@ -11,7 +11,7 @@ export default function LocationMap() {
       <div className="container-ag flex flex-col gap-10">
         <div className="max-w-[36ch] text-center mx-auto">
           <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">
-            {locale === 'es' ? 'UBICACIÓN' : 'LOCATION'}
+            {locale === 'es' ? 'Ubicación' : 'Location'}
           </p>
           <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-[-0.015em] text-balance">
             {locale === 'es' ? 'Encuéntranos en Houston' : 'Find us in Houston'}
