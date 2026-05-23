@@ -30,7 +30,7 @@ const dictionary = {
     eyebrow: { en: 'Wash packages', es: 'Paquetes de lavado' },
     title: { en: 'Choose your level of clean', es: 'Elige tu nivel de limpieza' },
     express: {
-      name: { en: 'Express', es: 'Express' },
+      name: { en: 'Starter', es: 'Starter' },
       desc: { en: 'Starting 149$', es: 'Desde 149$' },
       features: [
         { en: 'Foam wash', es: 'Lavado con espuma' },
@@ -40,7 +40,7 @@ const dictionary = {
         { en: '1 Step Gloss Enhancement Polish', es: 'Pulido de mejora de brillo en 1 paso' },
         { en: 'Premium Paint Sealant Protection', es: 'Protección con sellante premium para pintura' },
       ],
-      cta: { en: 'Book Express', es: 'Reservar Express' },
+      cta: { en: 'Book Starter', es: 'Reservar Starter' },
     },
     premium: {
       name: { en: 'Ceramic Coating', es: 'Recubrimiento Cerámico' },

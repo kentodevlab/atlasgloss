@@ -9,7 +9,7 @@ import type { ServicePackage } from '@/types'
 const packages: ServicePackage[] = [
   {
     id: 'express',
-    nameKey: 'Express',
+    nameKey: 'Starter',
     descriptionKey: 'Starting 149$',
     price: 149,
     duration: 0, // Duration will be handled by the feature list
