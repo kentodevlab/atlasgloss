@@ -12,12 +12,17 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: "url('/images/hero-bg.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/g-wagon.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,20,38,0.65)] via-[rgba(10,20,38,0.40)] to-[rgba(10,20,38,0.75)] z-[1]" />
 
       <div className="relative z-[2] text-center max-w-[780px] px-4 md:px-8 py-14">
