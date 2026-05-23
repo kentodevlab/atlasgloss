@@ -32,7 +32,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const svc = dictionary.services[service.id as keyof typeof dictionary.services] as any
 
   return (
-    <div className={`relative bg-surface dark:bg-navy border rounded-[16px] p-5 md:p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,37,71,0.16),0_4px_8px_rgba(15,37,71,0.06)] ${service.featured ? 'border-blue-bright border-2' : 'border-border'}`}>
+    <div className={`relative bg-card border rounded-[16px] p-5 md:p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,37,71,0.16),0_4px_8px_rgba(15,37,71,0.06)] ${service.featured ? 'border-blue-bright border-2' : 'border-border'}`}>
       {service.featured && svc.badge && (
         <span className="absolute top-4 right-4 bg-blue-bright text-white font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] px-3 py-1 rounded-md">
           {svc.badge[locale]}

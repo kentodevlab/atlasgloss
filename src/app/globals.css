@@ -14,6 +14,8 @@
   --color-muted: #6B7480;
   --color-border: #DDE2E8;
 
+  --color-card: #FFFFFF;
+
   --font-display: var(--font-saira), 'Oswald', 'Arial Narrow', sans-serif;
   --font-body: var(--font-manrope), 'Helvetica Neue', system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
@@ -26,6 +28,7 @@ html.dark {
   --color-muted: #9CA3AF;
   --color-border: #2D3748;
   --color-houston-soft: #3D2A1C;
+  --color-card: #0F1A30;
 }
 
 @layer base {
