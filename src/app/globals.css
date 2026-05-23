@@ -28,7 +28,10 @@ html.dark {
   --color-muted: #9CA3AF;
   --color-border: #2D3748;
   --color-houston-soft: #3D2A1C;
-  --color-card: #0F1A30;
+}
+
+html.dark .bg-card {
+  background-color: #0F1A30;
 }
 
 @layer base {
