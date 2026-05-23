@@ -164,7 +164,7 @@ export default function Gallery() {
           <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.08em] uppercase text-blue-bright mb-5">
             {t(dictionary.gallery.eyebrow, locale)}
           </p>
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-[-0.015em]">
+          <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] leading-[1.1] tracking-[-0.015em] text-balance">
             {t(dictionary.gallery.title, locale)}
           </h2>
           <p className="text-muted text-[19px] leading-relaxed max-w-[60ch] mt-3">

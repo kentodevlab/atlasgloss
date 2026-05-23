@@ -27,7 +27,7 @@ const sizes: Record<string, string> = {
 }
 
 export default function Button({ variant = 'primary', size = 'md', href, arrow, className = '', children, ...props }: ButtonProps) {
-  const cls = `inline-flex items-center justify-center gap-2 font-semibold tracking-[0.01em] border transition-all duration-150 active:translate-y-px no-underline ${variants[variant]} ${sizes[size]} ${arrow ? 'group' : ''} ${className}`
+  const cls = `inline-flex items-center justify-center gap-2 font-semibold tracking-[0.01em] border transition-all duration-150 active:translate-y-px no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-bright focus-visible:ring-offset-2 ${variants[variant]} ${sizes[size]} ${arrow ? 'group' : ''} ${className}`
 
   if (href) {
     return (

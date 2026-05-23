@@ -32,7 +32,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const svc = dictionary.services[service.id as keyof typeof dictionary.services] as any
 
   return (
-    <div className={`relative bg-card border rounded-[16px] p-5 md:p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,37,71,0.16),0_4px_8px_rgba(15,37,71,0.06)] ${service.featured ? 'border-blue-bright border-2' : 'border-border'}`}>
+    <div className={`relative bg-card border rounded-[16px] p-5 md:p-8 text-center flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(15,37,71,0.16),0_4px_8px_rgba(15,37,71,0.06)] ${service.featured ? 'border-blue-bright border-2' : 'border-border'}`}>
       {service.featured && svc.badge && (
         <span className="absolute top-4 right-4 bg-blue-bright text-white font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] px-3 py-1 rounded-md">
           {svc.badge[locale]}
@@ -53,7 +53,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <span className="text-[0.5em] align-super">$</span>{service.price}
       </div>
 
-      <ul className="list-none p-0 m-5 text-left">
+      <ul className="list-none p-0 m-5 text-left flex-1">
         {svc.features.map((f: any, i: number) => (
           <li key={i} className="flex items-center gap-2 py-2 border-b border-border text-sm text-muted last:border-none">
             <svg className="w-4 h-4 text-green-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -64,7 +64,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         ))}
       </ul>
 
-      <Button href="#booking" variant={service.featured ? 'primary' : 'secondary'} className="w-full justify-center">
+      <Button href="#booking" variant={service.featured ? 'primary' : 'secondary'} className="w-full justify-center mt-auto">
         {svc.cta[locale]}
       </Button>
     </div>
