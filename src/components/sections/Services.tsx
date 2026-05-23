@@ -10,19 +10,19 @@ const packages: ServicePackage[] = [
   {
     id: 'express',
     nameKey: 'Express',
-    descriptionKey: 'Quick exterior hand wash & dry',
-    price: 29,
-    duration: 20,
-    features: ['Hand wash & rinse', 'Microfiber dry', 'Tire & rim clean', 'Window polish', '~20 minutes'],
+    descriptionKey: 'Starting 149$',
+    price: 149,
+    duration: 0, // Duration will be handled by the feature list
+    features: ['Foam wash', 'Deep cleaning of wheels and tires', 'Paint and Wheel decontamination', 'Clay Bar Treatment', '1 Step Gloss Enhancement Polish', 'Premium Paint Sealant Protection'],
   },
   {
     id: 'premium',
-    nameKey: 'Premium',
-    descriptionKey: 'Full interior + exterior detail',
-    price: 59,
-    duration: 45,
+    nameKey: 'Ceramic Coating',
+    descriptionKey: '399$',
+    price: 399,
+    duration: 0, // Duration will be handled by the feature list (8/9 hours)
     featured: true,
-    features: ['Everything in Express', 'Interior vacuum & wipe', 'Dashboard & console detail', 'Spray wax finish', 'Air freshener', '~45 minutes'],
+    features: ['Detailed washing with foam', 'Decontamination of Paint and tires', 'Clay bar', '1 Paint correction step', 'Prep', 'Installation of ceramic coating throughout the car including Windows', 'Recovery of black plastics', 'Basic internal cleaning', 'Sealant - up to 8 months.', 'The process lasts approximately 8/9 hours.'],
   },
   {
     id: 'signature',
